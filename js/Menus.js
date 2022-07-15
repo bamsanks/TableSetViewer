@@ -67,6 +67,8 @@ function menuItemClicked(e) {
     }
   } else if (this.id == "edit-find") {
     findWindow.show();
+  } else if (this.id == "test-big-data") {
+    addBigTable();
   } else {
     recognised = false;
   }

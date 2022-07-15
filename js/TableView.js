@@ -251,9 +251,13 @@ class TableView {
       colEl.innerText = r + 1;
     }
     var headerContainer = document.getElementById("header-container");
+    var columnBlocker = document.getElementById("column-blocker");
     var numDigits = (x) => Math.floor(Math.log(x) / NAT_LOG_10) + 1;
     var rowHeaderWidth = Math.max(Math.round(numDigits(lastRow + 1) * 6.5 + 9.51), 40);
-    headerContainer.style.marginLeft = rowHeaderWidth + "px";
+    headerContainer.style.paddingLeft = rowHeaderWidth + "px";
+    columnBlocker.style.marginLeft = -rowHeaderWidth + "px";
+    columnBlocker.style.width = rowHeaderWidth + "px";
+    rowHeadersDiv.style.width = rowHeaderWidth + "px";
   }
 
   columnResized() {
@@ -361,8 +365,8 @@ class TableView {
     [firstCol, lastCol] = this.calculateBounds(-this.scrollX, this.colWidths, maxWidth);
 
     // Give a buffer of 2 rows/cols each way to make scrolling / rendering cleaner
-    [firstRow, lastRow] = [firstRow - 10, lastRow + 10];
-    [firstCol, lastCol] = [firstCol - 10, lastCol + 10];
+    [firstRow, lastRow] = [firstRow, lastRow];
+    [firstCol, lastCol] = [firstCol, lastCol];
 
     // Make sure these are within the bounds of the table dimensions
     if (firstRow < 0) firstRow = 0;
