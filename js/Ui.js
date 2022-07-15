@@ -50,10 +50,10 @@ function unselectAllNodes() {
   for (var node of nodes) node.classList.remove("selected-node");
 }
 
-function populateIndex(binaryFile) {
+function populateIndex(tabularFile) {
   var index = document.getElementById("index");
   for (let child of index.children) child.remove();
-  var tree = generateHtmlTree(binaryFile.content);
+  var tree = generateHtmlTree(tabularFile.content);
   index.appendChild(tree);
 
   globals.tableViews = [];

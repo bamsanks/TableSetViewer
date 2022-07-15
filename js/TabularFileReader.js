@@ -1,4 +1,4 @@
-class BinaryFileReader {
+class TabularFileReader {
 
   static baseOADate = new Date(1899, 11, 31);
 

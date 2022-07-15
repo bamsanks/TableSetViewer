@@ -1,4 +1,4 @@
-class BinaryFile {
+class TabularFile {
 
   header;
   content;
@@ -8,15 +8,15 @@ class BinaryFile {
     this.totalNumTables = 0; 
     if (data === undefined) return;
 
-    this.reader = new BinaryFileReader(data);
+    this.reader = new TabularFileReader(data);
     this.header = this.readHeader();
     this.content = this.readTableSet();
   }
 
   checkStructsExist() {
     var missing = (name => `Definition for '${name}' is missing!`);
-    if (typeof BinaryFileHeader !== "function") throw(missing("BinaryFileHeader"));
-    if (typeof TableSet !== "function") throw(missing("BinaryFileContent"));
+    if (typeof TabularFileHeader !== "function") throw(missing("TabularFileHeader"));
+    if (typeof TableSet !== "function") throw(missing("TabularFileContent"));
     if (typeof Table !== "function") throw(missing("Table"));
     if (typeof SectionInfo !== "function") throw(missing("SectionInfo"));
   }
@@ -31,7 +31,7 @@ class BinaryFile {
   }
 
   readHeader() {
-    var header = new BinaryFileHeader();
+    var header = new TabularFileHeader();
     header.infoLength = this.reader.readInt32();
     header.dataLength = this.reader.readInt32();
     header.hash = this.reader.readString();

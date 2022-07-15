@@ -1,4 +1,4 @@
-class BinaryFileHeader {
+class TabularFileHeader {
 
   infoLength;
   dataLength;

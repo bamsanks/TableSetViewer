@@ -359,9 +359,9 @@ class TableView {
     [firstRow, lastRow] = this.calculateBounds(-this.scrollY, this.rowHeights, maxHeight);
     [firstCol, lastCol] = this.calculateBounds(-this.scrollX, this.colWidths, maxWidth);
 
-    // Give a buffer of 2 rows/cols each way to make scrolling / rendering clean
-    [firstRow, lastRow] = [firstRow - 2, lastRow + 2];
-    [firstCol, lastCol] = [firstCol - 2, lastCol + 2];
+    // Give a buffer of 2 rows/cols each way to make scrolling / rendering cleaner
+    [firstRow, lastRow] = [firstRow - 10, lastRow + 10];
+    [firstCol, lastCol] = [firstCol - 10, lastCol + 10];
 
     // Make sure these are within the bounds of the table dimensions
     if (firstRow < 0) firstRow = 0;

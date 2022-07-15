@@ -1,5 +1,5 @@
-var dummyFile = new BinaryFile();
-dummyFile.header = new BinaryFileHeader();
+var dummyFile = new TabularFile();
+dummyFile.header = new TabularFileHeader();
 
 dummyFile.header.infoLength = 100;
 dummyFile.header.dataLength = 2000;
