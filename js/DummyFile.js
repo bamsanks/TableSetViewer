@@ -21,11 +21,12 @@ dummyFile.header.vdTemplate = null;
 dummyFile.content = new TableSet();
 dummyFile.content.name = "root";
 
-dummyFile.content.index.push({ type: "Table", index: 0});
-dummyFile.content.index.push({ type: "Table", index: 1});
+dummyFile.content.index.push({ type: "Table",    index: 0});
+dummyFile.content.index.push({ type: "Table",    index: 1});
 dummyFile.content.index.push({ type: "TableSet", index: 0});
-dummyFile.content.index.push({ type: "Table", index: 2});
-dummyFile.content.index.push({ type: "Table", index: 3});
+dummyFile.content.index.push({ type: "Table",    index: 2});
+dummyFile.content.index.push({ type: "Table",    index: 3});
+dummyFile.content.index.push({ type: "Table",    index: 4});
 
 var tblIdTracker = 0;
 
@@ -62,10 +63,11 @@ function DefineTable(name, numRows, numKeyCols, numValueCols) {
   return tbl;
 }
 
-dummyFile.content.tables.push(DefineTable("Tbl #1",        4,   3,   2));
-dummyFile.content.tables.push(DefineTable("Tbl #2",       10,   1,   7));
-dummyFile.content.tables.push(DefineTable("Tbl #3",        1,   1,   2));
-dummyFile.content.tables.push(DefineTable("Big Table", 10000,   7,  45));
+dummyFile.content.tables.push(DefineTable("Tbl #1",           4,   3,   2));
+dummyFile.content.tables.push(DefineTable("Tbl #2",          10,   1,   7));
+dummyFile.content.tables.push(DefineTable("Tbl #3",           1,   1,   2));
+dummyFile.content.tables.push(DefineTable("Medium Table",   100,   2,  12));
+dummyFile.content.tables.push(DefineTable("Big Table",    10000,   7,  45));
 
 var nestedTableSet = new TableSet();
 nestedTableSet.name = "Group #1";
