@@ -84,7 +84,7 @@ function initialiseMenus() {
     }
   }
 
-  wla = document.getElementsByClassName("submenu");
+  els = document.getElementsByClassName("submenu");
   for (let el of els) {
     let items = el.getElementsByTagName("p");
     for (let item of items) {
