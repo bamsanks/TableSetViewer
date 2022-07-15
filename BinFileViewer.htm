@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title>Binary File Viewer</title>
+    <script type="text/javascript" src="./js/Globals.js"></script>
+    <script type="text/javascript" src="./js/DataStructs.js"></script>
+    <script type="text/javascript" src="./js/BinaryFileReader.js"></script>
+    <script type="text/javascript" src="./js/BinaryFile.js"></script>
+    <script type="text/javascript" src="./js/Ui.js"></script>
+    <script type="text/javascript" src="./js/FindWindow.js"></script>
+    <script type="text/javascript" src="./js/TableView.js"></script>
+    <script type="text/javascript" src="./js/Menus.js"></script>
+    <script type="text/javascript" src="./js/DummyFile.js"></script>
+    <link rel="stylesheet" href="./css/Viewer.css">
+
+    <script>
+      window.addEventListener("load", () => {
+        document.body.addEventListener("keydown", function(e) {
+          if (e.ctrlKey && e.keyCode == 0x4f /* Ctrl-O */) {
+            document.getElementById("file").click();
+            e.preventDefault();
+          } else if (e.ctrlKey && e.keyCode == 0x46 /* Ctrl-F */) {
+            findWindow.show();
+            e.preventDefault();
+          }
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="menu-bar">
+        <div class="menu-item" id="file-menu" submenu="file-submenu">File</div>
+        <div class="submenu" id="file-submenu">
+          <p id="file-open"><tx>Open...</tx><sh>Ctrl+O</sh></p>
+          <p class="disabled">Close</p>
+          <hr>
+          <p class="disabled">Exit</p>
+        </div>
+
+        <div class="menu-item" id="edit-menu" submenu="edit-submenu">Edit</div>
+        <div class="submenu" id="edit-submenu">
+          <p id="edit-copy"><tx>Copy</tx><sh>Ctrl+C</sh></p>
+          <p id="edit-copy-headers"><tx>Copy with Headers</tx><sh>Ctrl+Shift+C</sh></p>
+          <p id="edit-select-all"><tx>Select All</tx><sh>Ctrl+A</sh></p>
+          <hr>
+          <p id="edit-find"><tx>Find...</tx><sh>Ctrl+F</sh></p>
+
+        </div>
+      </div>
+
+      <div id="main">
+        <input type="file" id="file" hidden></input>
+        <div id="index">
+
+        </div>
+        <div id="slider" style="width: 10px; box-sizing: content; margin: 5px 0 10px 0; cursor: col-resize;"></div>
+        <div id="viewer" style="background-color: #ddd;">
+          <div id="header-container">
+            <div id="column-headers" style="background-color:#ddd; display: flex; height: 30px; width: 100%; flex-shrink: 0; margin-left: 0;"></div>
+          </div>
+          <div id="viewer-sub" style="display: flex; height: 100%; width: 100%; overflow: hidden;">
+            <div id="row-headers"></div>
+            <div id="content">
+              <div id="buffer-top"></div>
+              <div id="mid-section">
+                <div id="buffer-left"></div>
+                <div id="content-back"></div>
+                <div id="buffer-right"></div>
+              </div>
+              <div id="buffer-bottom"></div>
+            </div>
+          </div>
+        </div>
+        <div id="find-window" class="window">
+          <div class="window-title">
+            <div class="window-title-button window-close"></div>
+          </div>
+          <div class="window-body">
+            <div style="display: flex; align-items: center;">
+              <div style="float: left; margin-right: 20px; padding-bottom: 1px; cursor: default; user-select: none;">Find:</div>
+              <input type="text" style="margin-right: 6px; display: flex; flex-shrink: 1;">
+              <button style="display: flex; flex-shrink: 0;">Find Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
