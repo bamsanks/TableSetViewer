@@ -42,7 +42,7 @@
 
 body {
   font-family: "Segoe UI";
-  font-size: 12px;
+  font-size: 11px;
   background-color: #f0f0f0;
 }
 
@@ -98,8 +98,6 @@ input, button {
   border: 1px solid #808080;
   background-color: #fdfdfd;
   cursor: default;
-  font-family: "Segoe UI";
-  font-size: 12px;
   box-shadow: 2px 2px 3px #00000080;
 }
 
@@ -189,7 +187,8 @@ input, button {
 }
 
 .table-row>div.selected {
-  background-color: #cee;
+  background-color: #7fb4e5;
+  color: #fff;
 }
 
 .table-row-header {
@@ -252,12 +251,13 @@ li {
 }
 
 li>p {
-  padding: 2px 6px 2px 6px;
+  padding: 3px 6px 3px 6px;
 }
 
 li.selected-node>p {
-  background-color:#8ae;
+  background-color:#7fb4e5;
   color: #fff;
+  font-weight: bold;
 }
 
 .tableSetName {

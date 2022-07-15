@@ -19,8 +19,9 @@ class TableView {
     this.table = table;
     this.numRows = table.numRows;
     this.numCols = table.numKeys + table.numValueCols;
-    this.rowHeights = Array(this.numRows).fill(30); // Default row height = 30
-    this.colWidths = Array(this.numCols).fill(100); // Default col width = 100
+    // Set default row heights / col widths
+    this.rowHeights = Array(this.numRows).fill(24);
+    this.colWidths = Array(this.numCols).fill(100);
   }
 
   estimateHeaderPositions() {
